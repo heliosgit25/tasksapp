@@ -3,6 +3,7 @@ import os
 
 FILE_NAME = "tasks.json"
 
+##Helper functions - Load & Save
 # Load tasks function -- Most important for handling filenotfound error
 def load_tasks():
     if not os.path.exists(FILE_NAME):
@@ -15,6 +16,7 @@ def save_tasks(tasks):
     with open(FILE_NAME, "w") as file:
         json.dump(tasks, file, indent=4)
 
+##Feature functions - Show, Add, Complete, Pending, Delete
 # Show tasks function
 def view_tasks(tasks):
     if not tasks:
@@ -63,6 +65,7 @@ def delete_task(tasks):
     except:
         print("Invalid input.")
 
+##Main logic
 # Main loop
 def main():
     tasks = load_tasks()
@@ -93,5 +96,6 @@ def main():
         else:
             print("Invalid choice.")
 
+##Entry point is here
 if __name__ == "__main__":
     main()

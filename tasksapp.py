@@ -87,7 +87,7 @@ def main():
         elif choice == "4":
             pending_task(tasks)
         elif choice == "5":
-            delete_task
+            delete_task(tasks)
         elif choice == "6":
             break
         else:

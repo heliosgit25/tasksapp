@@ -3,19 +3,19 @@ import os
 
 FILE_NAME = "tasks.json"
 
-# Load tasks
+# Load tasks function -- Most important for handling filenotfound error
 def load_tasks():
     if not os.path.exists(FILE_NAME):
         return []
     with open(FILE_NAME, "r") as file:
         return json.load(file)
 
-# Save tasks
+# Save tasks function
 def save_tasks(tasks):
     with open(FILE_NAME, "w") as file:
         json.dump(tasks, file, indent=4)
 
-# Show tasks
+# Show tasks function
 def view_tasks(tasks):
     if not tasks:
         print("\nNo tasks yet.\n")
@@ -27,13 +27,13 @@ def view_tasks(tasks):
         print(f"{i}. [{status}] {task['title']}")
     print()
 
-# Add task
+# Add task function
 def add_task(tasks):
     title = input("Enter task: ")
     tasks.append({"title": title, "done": False})
     save_tasks(tasks)
 
-# Mark complete
+# Mark complete function
 def complete_task(tasks):
     view_tasks(tasks)
     try:
@@ -43,7 +43,7 @@ def complete_task(tasks):
     except:
         print("Invalid input.")
 
-#Mark Pending
+#Mark Pending function
 def pending_task(tasks):
     view_tasks(tasks)
     try:
@@ -53,7 +53,7 @@ def pending_task(tasks):
     except:
         print("Invalid input.")
 
-# Delete task
+# Delete task function
 def delete_task(tasks):
     view_tasks(tasks)
     try:

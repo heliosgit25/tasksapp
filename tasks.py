@@ -21,8 +21,9 @@ task = {
 tasks.append(task)
 
 for i, task in enumerate(tasks, 1):
-    status = "✔" if task["done"] else "✘"
-    print(f"{i}. [{status}] {task['title']} {task['priority']}")
+    print(f"{i}. [{task['done']}] {task['title']} {task['priority']}")
 
+#print(tasks[0]["done"])
 #print(task)
 #print(tasks)
+#status = "✔" if task["done"] else "✘"
